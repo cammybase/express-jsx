@@ -1,5 +1,8 @@
 {
-  "dependencies": {
-    "express": "^4.17.2"
-  }
+	"name": "@cammybase/express-jsx",
+	"type": "module",
+	"version": "0.0.1",
+	"dependencies": {
+		"express": "^4.17.2"
+	}
 }

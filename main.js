@@ -1,6 +1,9 @@
-const express = require('express');
-const config = require('./cammybase.config');
-const cammyRoutes = require('./routes');
+//const express = require('express');
+//const config = require('./cammybase.config');
+//const cammyRoutes = require('./routes');
+import express from 'express';
+import config from './cammybase.config.js';
+import cammyRoutes from './routes.js';
 
 class CammyServer {
 	constructor() {
@@ -13,9 +16,9 @@ class CammyServer {
 	}
 
 	listen() {
-		this.app.listen(config.port), () => {
-			console.log("CammyServer listening at http://localhost:${config.port}");
-		};
+		this.app.listen(config.port, () => {
+			console.log(`CammyServer listening at http://localhost:${config.port}`);
+		});
 	}
 }
 
