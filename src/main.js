@@ -3,7 +3,7 @@
 //const cammyRoutes = require('./routes');
 import express from 'express';
 import config from './cammybase.config.js';
-import cammyRoutes from './routes.js';
+import cammyRoutes from './routes.jsx';
 
 class CammyServer {
 	constructor() {
