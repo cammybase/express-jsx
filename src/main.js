@@ -25,3 +25,5 @@ class CammyServer {
 var server = new CammyServer();
 server.listen();
 
+export default server;
+

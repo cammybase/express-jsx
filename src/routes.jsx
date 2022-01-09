@@ -18,20 +18,8 @@ function generate(app) {
 					<div>okayyy</div>
 				);
 
-				// Manipulate DOM according to page:
-				//var bodyEle = domRoot.getElementsByTagName('body')[0];
-				//var pageElement = domRoot.querySelector('#' + req.params.page + '-page');
-
-				//const app = Nano.renderSSR(<App />);
 				const app = render(<App />);
-				//const app = render(data);
-				//const app = render(data);
-				//const { body, head, footer } = Helmet.SSR(app)
-				//@REVISIT:
-				console.log(app);
-				//var page = data.toString().replace('<App />', app);
-				var page = data.toString();
-				console.log(page);
+				var page = data.toString().replace('<App />', app);
 				res.send(page);
 
 				//res.send(domRoot.toString());

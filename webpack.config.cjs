@@ -1,10 +1,12 @@
+//@TODO comment the purpose:
 const path = require('path');
-const nodeExternals = require('webpack-node-externals');
-//const fs = require('fs');
-//const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-//const nodeExternals = require('webpack-node-externals');
 
-module.exports = [{
+//@TODO comment the purpose:
+const nodeExternals = require('webpack-node-externals');
+
+//import config from './cammybase.config.js';
+
+var webpackConfig = {
 	entry: './src/main.js',
 	target: 'node',
 	externalsPresets: { node: true }, // in order to ignore built-in modules like path, fs, etc.
@@ -13,15 +15,20 @@ module.exports = [{
 	devtool: 'eval-source-map',
 	output: {
 		filename: 'cammybaseServer.cjs',
-		path: path.resolve(__dirname, 'build')
+		path: path.resolve(__dirname, 'build/')
 	},
 	module: {
 		rules: [
 			{
 				test: /\.jsx?$/,
-				//exclude: /node_modules/,
 				include: [
 					path.resolve(__dirname, 'src/'),
+				],
+				exclude: [
+					/node_modules/,
+
+					// Ignore jsx views; we want to keep them jsx (@REVISIT)
+					path.resolve(__dirname, 'src/views/'),
 				],
 				loader: "babel-loader",
 				options: {
@@ -44,4 +51,19 @@ module.exports = [{
 			}
 		]
 	},
-}]
+};
+
+//var devConfig = Object.assign({}, webpackConfig, {
+//    entry: './src/devServer.js',
+//    output: {
+//        filename: 'cammybaseDevServer.cjs',
+//        path: path.resolve(__dirname, 'build/')
+//    },
+//    nodemonConfig: {
+//        "ignore": ["test/*", "docs/*"],
+//        "delay": 2500
+//    }
+//});
+
+//module.exports = [webpackConfig, devConfig];
+module.exports = [webpackConfig];
